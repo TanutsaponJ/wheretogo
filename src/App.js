@@ -91,12 +91,15 @@ const thailand = [
 
 function App() {
   const [data, setData] = useState(thailand);
-  const [select, setSelect] = useState("North");
+  const handleParentStateUpdate = (newValue) => {
+    var thailandOnSelectRegion = thailand.filter((item) => item.position == newValue);
+    setData(thailandOnSelectRegion);
+  };
 
   return (
     <div className='App'>
       <Header />
-      <Select select={select} onSetSelect={setSelect} data={data} />
+      <Select onSetSelect={handleParentStateUpdate} />
       <Content data={data} />
       <Footer />
     </div>
