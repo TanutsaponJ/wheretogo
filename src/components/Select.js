@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 
-function Select({ data }) {
+function Select({ onSetSelect }) {
   const [curSelect, setCurSelect] = useState("North");
 
   function HandleSubmit(e) {
     e.preventDefault();
+    onSetSelect(curSelect)
   }
 
   return (
